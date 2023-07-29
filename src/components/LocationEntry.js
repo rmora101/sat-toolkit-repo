@@ -20,7 +20,7 @@ census({
 },   
 (err, res) => console.log(res)
 )
-// median income sdk calls
+// median household income sdk calls
 census({
     vintage: '2021',
     geoHierarchy: {
@@ -28,9 +28,10 @@ census({
         'metropolitan statistical area/micropolitan statistical area': '*',
     },
     sourcePath: ['acs', 'acs1','profile'],
-    values: ['B17001_002E'], // GINI index
+    values: ['DP03_0062E'], // GINI index
     statsKey: apiAccessKey,
     geoResolution: '500k',
 },   
 (err, res) => console.log(res)
 )
+
