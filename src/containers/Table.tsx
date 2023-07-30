@@ -17,7 +17,8 @@ function createData(
 const rows = [
   createData('Income', 100000),
   createData('Population',50000),
-  createData('race 1', 10)
+  createData('race 1', 10),
+  createData('race 2', 3)
 ];
 
 export default function BasicTable() {
@@ -26,10 +27,9 @@ export default function BasicTable() {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>Data Name</TableCell>
-            <TableCell align="right">Result</TableCell>
+            <TableCell style={{fontWeight: 'bold'}}>Data Name</TableCell>
+            <TableCell style={{fontWeight: 'bold'}} align="right">Result</TableCell>
           </TableRow>
-          
         </TableHead>
         <TableBody>
           {rows.map((row) => (
