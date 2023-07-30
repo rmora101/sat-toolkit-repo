@@ -9,16 +9,15 @@ import Paper from '@mui/material/Paper';
 
 function createData(
   name: string,
-  Population: number,
-  Income: number,
-  carbs: number,
-  protein: number,
+  Result: number, 
 ) {
-  return { name, Population, Income, carbs, protein };
+  return { name, Result};
 }
 
 const rows = [
-  createData('Data 1', 159, 6.0, 24, 4.0)
+  createData('Income', 100000),
+  createData('Population',50000),
+  createData('race 1', 10)
 ];
 
 export default function BasicTable() {
@@ -29,18 +28,6 @@ export default function BasicTable() {
           <TableRow>
             <TableCell>Data Name</TableCell>
             <TableCell align="right">Result</TableCell>
-          </TableRow>
-          <TableRow>
-          <TableCell>Population</TableCell>
-          </TableRow>
-          <TableRow>
-          <TableCell>Income</TableCell>
-          </TableRow>
-          <TableRow>
-          <TableCell>Race: African American/Black</TableCell>
-          </TableRow>
-          <TableRow>
-          <TableCell>Race: Race 2 </TableCell>
           </TableRow>
           
         </TableHead>
@@ -53,10 +40,7 @@ export default function BasicTable() {
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell align="right">{row.Population}</TableCell>
-              <TableCell align="right">{row.Income}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+              <TableCell align="right">{row.Result}</TableCell>
             </TableRow>
           ))}
         </TableBody>
