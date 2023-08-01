@@ -17,14 +17,14 @@ function createData(
 const rows = [
   createData('Income', 100000),
   createData('Population',50000),
-  createData('race 1', 10),
+  createData('race 1 (%)', 10),
   createData('race 2', 3)
 ];
 
 export default function BasicTable() {
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ minWidth: 650, width: '50%' }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell style={{fontWeight: 'bold'}}>Data Name</TableCell>
