@@ -28,6 +28,7 @@ export default function SelectLabels() {
           </MenuItem>
           <MenuItem value={0o4}>Arizona</MenuItem>
         </Select>
+        <FormHelperText>Required</FormHelperText>
       </FormControl>
       {/* <FormControl sx={{ m: 1, minWidth: 120 }}>
         <Select
