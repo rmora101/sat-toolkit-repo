@@ -8,17 +8,25 @@ import {getStates} from '../components/LocationInput.js';
 import {useEffect} from 'react';
 
 export default function SelectLabels() {
-  const [states, setState] = React.useState('');
+  const [states, setStates] = React.useState([]);
   const [area, setArea] = React.useState('');
+  // let defaultStates = [];
 
   const handleChange = (event: SelectChangeEvent) => {
-    setState(event.target.value);
+    setStates(event.target.value);
     setArea(event.target.value);
   };
+
   useEffect(() => { 
-    const defaultStates = getStates();
-    setState(defaultStates);
+    const fetchStates = async () => {
+      const defaultStates = await getStates();
+      setStates(defaultStates);
+    };
+    fetchStates();
+
   }, []);
+
+
 
   return (
     <div>
@@ -34,7 +42,9 @@ export default function SelectLabels() {
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={0o4}>Arizona</MenuItem>
+          {states.length > 0 && states.map((state) => (
+        <MenuItem value={state.stateId}>{state.stateName}</MenuItem>
+      ))}
         </Select>
         <FormHelperText>Required</FormHelperText>
       </FormControl>

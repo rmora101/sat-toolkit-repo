@@ -4,7 +4,7 @@ const authToken = process.env.CENSUS_TOKEN;
 
 export const getStates = () => {
 
-    axios.get("https://api.census.gov/data/2016/acs/acs1?get=NAME&for=state:*")
+    const response = axios.get("https://api.census.gov/data/2016/acs/acs1?get=NAME&for=state:*")
         .then((response) => {
             const states = []
             for (let data of response.data) {
@@ -16,6 +16,7 @@ export const getStates = () => {
             return states
         })
         .catch(() => {return'hello'});
+        return response
 }
 
     axios.get("https://api.census.gov/data/2021/acs/acs1?get=NAME,B01001_001E&for=public%20use%20microdata%20area:*&in=state:04")
