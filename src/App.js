@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from './containers/Navbar';
-import './App.css';
+import Navbar from './containers/Navbar.js';
+
 import BasicTable from './containers/Table.tsx';
 import Input from './containers/Cityselect.tsx';
 

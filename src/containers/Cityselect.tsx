@@ -4,6 +4,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import {getStates} from '../components/LocationInput.js';
+import {useEffect} from 'react';
 
 export default function SelectLabels() {
   const [states, setState] = React.useState('');
@@ -13,6 +15,10 @@ export default function SelectLabels() {
     setState(event.target.value);
     setArea(event.target.value);
   };
+  useEffect(() => { 
+    const defaultStates = getStates();
+    setState(defaultStates);
+  }, []);
 
   return (
     <div>
