@@ -23,8 +23,8 @@ const rows = [
 
 export default function BasicTable() {
   return (
-    <TableContainer component={Paper} sx={{ width:'50%' }} >
-      <Table sx={{ minWidth: 650, }} aria-label="simple table">
+    <TableContainer component={Paper} sx={{ width:'25%' }} >
+      <Table sx={{ minWidth: 300,  }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell style={{fontWeight: 'bold'}}>Data Name</TableCell>

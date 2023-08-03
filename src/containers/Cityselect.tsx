@@ -7,9 +7,11 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 export default function SelectLabels() {
   const [states, setState] = React.useState('');
+  const [area, setArea] = React.useState('');
 
   const handleChange = (event: SelectChangeEvent) => {
     setState(event.target.value);
+    setArea(event.target.value);
   };
 
   return (
@@ -30,22 +32,23 @@ export default function SelectLabels() {
         </Select>
         <FormHelperText>Required</FormHelperText>
       </FormControl>
-      {/* <FormControl sx={{ m: 1, minWidth: 120 }}>
+      <FormControl sx={{ m: 1, minWidth: 120 }}>
+        <InputLabel id="demo-simple-select-helper-label">Area</InputLabel>
         <Select
-          value={states}
+          labelId="demo-simple-select-helper-label"
+          id="demo-simple-select-helper"
+          value={area}
+          label="states"
           onChange={handleChange}
-          displayEmpty
-          inputProps={{ 'aria-label': 'Without label' }}
         >
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          <MenuItem value={0o4}>Phoenix</MenuItem>
         </Select>
-        <FormHelperText>Without label</FormHelperText>
-      </FormControl> */}
+        <FormHelperText>Required</FormHelperText>
+      </FormControl>
+
     </div>
   );
 }

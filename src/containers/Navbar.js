@@ -1,7 +1,7 @@
 const Navbar = () => {
     return (
         <nav className="navbar">
-            <h1>SAT Toolkit</h1>
+            <h1>SAT</h1>
             <div className="links">
             </div>
         </nav>
