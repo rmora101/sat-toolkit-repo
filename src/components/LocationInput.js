@@ -41,13 +41,15 @@ export const getStates = () => {
 // }
 
 export const getIncome = () => {
-    axios.get(`https://api.census.gov/data/2021/acs/acs1/profile?get=NAME,DP03_0062E,DP03_0086E&for=public%20use%20microdata%20area:00119&in=state:04`)
+    const response = axios.get(`https://api.census.gov/data/2021/acs/acs1/profile?get=NAME,DP03_0062E,DP03_0086E&for=public%20use%20microdata%20area:00119&in=state:04`)
     .then((response) => {
+        const income = []
         for (let data of response.data) {
-            const incomeLevel = data[1];   // Accessing the "DP03_0062E" field
-            console.log(`INCOME: ${incomeLevel}`);
+            const incomeData = data[1];   // Accessing the "DP03_0062E" field
+            console.log(`INCOME: ${incomeData}`);
         }
-        
+        return income
     })
     .catch(console.error);
+    return response
 }
