@@ -8,13 +8,12 @@ import {getStates} from '../components/LocationInput.js';
 import {useEffect} from 'react';
 
 export default function SelectLabels() {
-  const [states, setStates] = React.useState([]);
-  const [area, setArea] = React.useState('');
-  // let defaultStates = [];
+  const [states, setStates] = React.useState({});
 
   const handleChange = (event: SelectChangeEvent) => {
-    setStates(event.target.value);
-    setArea(event.target.value);
+    const selectedStateId = event.target.value;
+    setStates(selectedStateId);
+    console.log(selectedStateId)
   };
 
   useEffect(() => { 
@@ -26,7 +25,6 @@ export default function SelectLabels() {
 
   }, []);
 
-let selectedState = null;
 
   return (
     <div>
@@ -42,8 +40,8 @@ let selectedState = null;
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          {states.length > 0 && states.map((state) => (
-        <MenuItem value={state.stateId}>{state.stateName}</MenuItem>
+          {Object.entries(states).map(([k,v]) => (
+        <MenuItem key ={k} value={v.stateId}>{v.stateName}</MenuItem>
       ))}
         </Select>
         <FormHelperText>Required</FormHelperText>
