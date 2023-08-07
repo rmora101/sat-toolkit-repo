@@ -7,14 +7,16 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import {getStates} from '../components/LocationInput.js';
 import {useEffect} from 'react';
 
+export let selectedStateId = '';
+console.log(selectedStateId)
+
 export default function SelectLabels() {
-  const [states, setStates] = React.useState([]);
-  const [area, setArea] = React.useState('');
-  // let defaultStates = [];
+  const [states, setStates] = React.useState({});
 
   const handleChange = (event: SelectChangeEvent) => {
-    setStates(event.target.value);
-    setArea(event.target.value);
+    const selectedStateId = event.target.value;
+    setStates(selectedStateId);
+    console.log(selectedStateId)
   };
 
   useEffect(() => { 
@@ -25,10 +27,6 @@ export default function SelectLabels() {
     fetchStates();
 
   }, []);
-
-  
-
-let selectedState = null;
 
   return (
     <div>
@@ -44,25 +42,9 @@ let selectedState = null;
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-          {states.length > 0 && states.map((state) => (
-        <MenuItem value={state.stateId}>{state.stateName}</MenuItem>
+          {Object.entries(states).map(([k,v]) => (
+        <MenuItem key ={k} value={v.stateId}>{v.stateName}</MenuItem>
       ))}
-        </Select>
-        <FormHelperText>Required</FormHelperText>
-      </FormControl>
-      <FormControl sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel id="demo-simple-select-helper-label">Area</InputLabel>
-        <Select
-          labelId="demo-simple-select-helper-label"
-          id="demo-simple-select-helper"
-          value={area}
-          label="states"
-          onChange={handleChange}
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={0o4}>Phoenix</MenuItem>
         </Select>
         <FormHelperText>Required</FormHelperText>
       </FormControl>
