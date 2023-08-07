@@ -7,8 +7,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import {getStates} from '../components/LocationInput.js';
 import {useEffect} from 'react';
 
-export let setSelectedStateId = '';
-console.log(setSelectedStateId)
+
 
 // export default function SelectLabels() {
 //   const [states, setStates] = React.useState({});
@@ -66,6 +65,9 @@ console.log(setSelectedStateId)
 //   );
 // }
 
+export let selectedStateId = '';
+console.log(selectedStateId)
+
 export default function SelectLabels() {
   const [selectedStateId, setSelectedStateId] = React.useState('');
 
@@ -82,6 +84,8 @@ export default function SelectLabels() {
     };
     fetchStates();
   }, []);
+
+
 
   return (
     <div>

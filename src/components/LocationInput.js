@@ -1,5 +1,5 @@
 import axios from "axios";
-import { selectedStateId } from "../containers/Stateselect.tsx";
+// import {selectedStateId} from "../containers/Stateselect.tsx";
 
 const URL = "https://api.census.gov/data/2021/acs/acs1?get=NAME,B01001_001E&for=public%20use%20microdata%20area:*&in=state:04"
 const authToken = process.env.CENSUS_TOKEN;
@@ -22,17 +22,32 @@ export const getStates = () => {
         return response
 }
 
-export const getArea = () => {
-    axios.get("https://api.census.gov/data/2021/acs/acs1?get=NAME,B01001_001E&for=public%20use%20microdata%20area:*&in=state:04")
+// create a conditional where the second dropdown does not work until state id variable has a number.
+
+// export const getArea = () => {
+//     axios.get(`https://api.census.gov/data/2021/acs/acs1?get=NAME,B01001_001E&for=public%20use%20microdata%20area:*&in=state:${selectedStateId}`)
+//     .then((response) => {
+//         const areas = []
+//         for (let data of response.data) {
+//             const name = data[0];   // Accessing the "NAME" field
+//             const population = data[1];  // Accessing the "state" number field
+//             const state = data[2]; // access state code
+//             const microDataArea = data[3]; // access micro area code
+//             const areaData = {}
+//             return(console.log(`NAME: ${name}, STATE: ${state}, POPULATION:${population}, CITY_CODE:${microDataArea}`));
+//         }
+//     })
+//     .catch(console.error);
+// }
+
+export const getIncome = () => {
+    axios.get(`https://api.census.gov/data/2021/acs/acs1/profile?get=NAME,DP03_0062E,DP03_0086E&for=public%20use%20microdata%20area:00119&in=state:04`)
     .then((response) => {
-        const areas = []
         for (let data of response.data) {
-            const name = data[0];   // Accessing the "NAME" field
-            const population = data[1];  // Accessing the "state" number field
-            const state = data[2]; // access state code
-            const microDataArea = data[3]; // access micro area code
-            return(console.log(`NAME: ${name}, STATE: ${state}, POPULATION:${population}, CITY_CODE:${microDataArea}`));
+            const incomeLevel = data[1];   // Accessing the "DP03_0062E" field
+            console.log(`INCOME: ${incomeLevel}`);
         }
+        
     })
     .catch(console.error);
 }
