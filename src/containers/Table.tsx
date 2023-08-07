@@ -6,6 +6,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { getIncome } from '../components/LocationInput';
+import { useEffect } from 'react';
 
 function createData(
   name: string,
@@ -17,8 +19,8 @@ function createData(
 const rows = [
   createData('Income', 100000),
   createData('Population',50000),
-  createData('race 1 (%)', 10),
-  createData('race 2', 3)
+  // createData('race 1 (%)', 10),
+  // createData('race 2', 3)
 ];
 
 export default function BasicTable() {
