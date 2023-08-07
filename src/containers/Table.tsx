@@ -9,6 +9,7 @@ import Paper from '@mui/material/Paper';
 import { getIncome } from '../components/LocationInput';
 import { useEffect } from 'react';
 
+
 function createData(
   name: string,
   Result: number, 
@@ -19,12 +20,28 @@ function createData(
 const rows = [
   createData('Income', 100000),
   createData('Population',50000),
-  // createData('race 1 (%)', 10),
-  // createData('race 2', 3)
+  createData('race 1 (%)', 10),
+  createData('race 2', 3)
 ];
 
 export default function BasicTable() {
+  const [incomeStats, setIncomeStats] = React.useState('');
+
+  const handleChange = (event) => {
+    setIncomeStats(event.target.value);
+  };
+
+  // const [states, setStates] = React.useState([]);
+
+  useEffect(() => {
+    const fetchIncome = async () => {
+      const defaultIncome = await getIncome();
+      setIncomeStats(defaultIncome);
+    };
+    fetchIncome();
+  }, []);
   return (
+    <div>
     <TableContainer component={Paper} sx={{ width:'25%' }} >
       <Table sx={{ minWidth: 300,  }} aria-label="simple table">
         <TableHead>
@@ -48,6 +65,8 @@ export default function BasicTable() {
         </TableBody>
       </Table>
     </TableContainer>
+    <p>{incomeStats}</p>
+    </div>
   );
 }
 

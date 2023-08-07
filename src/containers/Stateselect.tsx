@@ -105,7 +105,7 @@ export default function SelectLabels() {
             <MenuItem key={state['stateId']} value={state['stateId']}>
               {state['stateName']}
             </MenuItem>
-          ))}
+          ))} 
         </Select>
         <p>{selectedStateId}</p>
         <FormHelperText>Required</FormHelperText>
