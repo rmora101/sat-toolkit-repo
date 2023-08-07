@@ -16,7 +16,6 @@ export default function SelectLabels() {
   const handleChange = (event: SelectChangeEvent) => {
     const selectedStateId = event.target.value;
     setStates(selectedStateId);
-    console.log(selectedStateId)
   };
 
   useEffect(() => { 
