@@ -68,4 +68,3 @@ let selectedState = null;
     </div>
   );
 }
-
