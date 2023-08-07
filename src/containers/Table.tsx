@@ -30,9 +30,7 @@ export default function BasicTable() {
   const handleChange = (event) => {
     setIncomeStats(event.target.value);
   };
-
   // const [states, setStates] = React.useState([]);
-
   useEffect(() => {
     const fetchIncome = async () => {
       const defaultIncome = await getIncome();
@@ -40,6 +38,9 @@ export default function BasicTable() {
     };
     fetchIncome();
   }, []);
+  
+
+  console.log(incomeStats[1])
   return (
     <div>
     <TableContainer component={Paper} sx={{ width:'25%' }} >
@@ -65,7 +66,7 @@ export default function BasicTable() {
         </TableBody>
       </Table>
     </TableContainer>
-    <p>{incomeStats}</p>
+    <p>{incomeStats[1]}</p>
     </div>
   );
 }

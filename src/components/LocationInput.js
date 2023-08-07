@@ -46,7 +46,7 @@ export const getIncome = () => {
         const income = []
         for (let data of response.data) {
             const incomeData = data[1];   // Accessing the "DP03_0062E" field
-            console.log(`INCOME: ${incomeData}`);
+            // console.log(`INCOME: ${incomeData}`);
             income.push(incomeData)
         }
         return income
