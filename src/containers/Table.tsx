@@ -6,7 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { getIncome } from '../components/LocationInput';
+import { getIncome, getPopulation } from '../components/LocationInput';
 import { useEffect } from 'react';
 
 
@@ -26,9 +26,11 @@ const rows = [
 
 export default function BasicTable() {
   const [incomeStats, setIncomeStats] = React.useState('');
+  const [popStats, setPopStats] = React.useState('');
 
   const handleChange = (event) => {
     setIncomeStats(event.target.value);
+    setPopStats(event.target.value)
   };
   // const [states, setStates] = React.useState([]);
   useEffect(() => {
@@ -38,9 +40,17 @@ export default function BasicTable() {
     };
     fetchIncome();
   }, []);
+
+  useEffect(() => {
+    const fetchPop = async () => {
+      const defaultPop = await getPopulation();
+      setIncomeStats(defaultPop);
+    };
+    fetchPop();
+  }, []);
   
 
-  console.log(incomeStats[1])
+  console.log(popStats)
   return (
     <div>
     <TableContainer component={Paper} sx={{ width:'25%' }} >
@@ -67,6 +77,7 @@ export default function BasicTable() {
       </Table>
     </TableContainer>
     <p>{incomeStats[1]}</p>
+    <p>{popStats}</p>
     </div>
   );
 }
