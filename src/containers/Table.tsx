@@ -6,7 +6,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { getIncome, getPopulation } from '../components/LocationInput';
+import { getIncomeRace,getIncome, getPopulation } from '../components/LocationInput';
 import { useEffect } from 'react';
 
 
@@ -25,32 +25,30 @@ const rows = [
 ];
 
 export default function BasicTable() {
-  const [incomeStats, setIncomeStats] = React.useState('');
-  const [popStats, setPopStats] = React.useState('');
+  const [statsIncomeAndRace, setStatsIncomeAndRace] = React.useState([]);
 
   const handleChange = (event) => {
-    setIncomeStats(event.target.value);
-    setPopStats(event.target.value)
+    setStatsIncomeAndRace(event.target.value);
   };
   // const [states, setStates] = React.useState([]);
   useEffect(() => {
-    const fetchIncome = async () => {
-      const defaultIncome = await getIncome();
-      setIncomeStats(defaultIncome);
+    const fetchIncomeRace = async () => {
+      const defaultStats = await getIncomeRace();
+      setStatsIncomeAndRace(defaultStats);
     };
-    fetchIncome();
+    fetchIncomeRace();
   }, []);
 
-  useEffect(() => {
-    const fetchPop = async () => {
-      const defaultPop = await getPopulation();
-      setIncomeStats(defaultPop);
-    };
-    fetchPop();
-  }, []);
+  // useEffect(() => {
+  //   const fetchPop = async () => {
+  //     const defaultPop = await getPopulation();
+  //     setStatsIncomeAndRace(defaultPop);
+  //   };
+  //   fetchPop();
+  // }, []);
   
 
-  console.log(popStats)
+  console.log(statsIncomeAndRace)
   return (
     <div>
     <TableContainer component={Paper} sx={{ width:'25%' }} >
@@ -76,8 +74,8 @@ export default function BasicTable() {
         </TableBody>
       </Table>
     </TableContainer>
-    <p>{incomeStats[1]}</p>
-    <p>{popStats}</p>
+    {/* <p>{statsIncomeAndRace['INCOME']}</p> */}
+
     </div>
   );
 }

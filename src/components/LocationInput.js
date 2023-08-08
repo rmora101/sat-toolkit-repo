@@ -55,8 +55,27 @@ export const getIncome = () => {
     return response
 }
 
+export const getIncomeRace = () => {
+    const response = axios.get(`https://api.census.gov/data/2021/acs/acs1/profile?get=NAME,DP03_0062E,DP05_0078PE,DP05_0071PE,DP05_0037PE&for=public%20use%20microdata%20area:00119&in=state:04`)
+    .then((response) => {
+        const stats = []
+        for (let data of response.data) {
+            const Income = data[1];   // Accessing the "DP03_0062E" field
+            const AAmerican = data[2];
+            const Hispanic = data[3];
+            const Caucasian = data[4]
+            const IncomeAndRace = {'INCOME': Income, 'AAmerican': AAmerican, 'HISPANIC': Hispanic, 'CAUCASIAN': Caucasian }
+            // console.log(IncomeAndRace);
+            stats.push(IncomeAndRace)
+        }
+        return stats
+    })
+    .catch(console.error);
+    return response
+}
+
 export const getPopulation = () => {
-    const response = axios.get(`https://api.census.gov/data/2021/acs/acs1?get=NAME,B01001_001E&for=public%20use%20microdata%20area:*&in=state:04`)
+    const response = axios.get(`https://api.census.gov/data/2021/acs/acs1?get=NAME,B01001_001E&for=public%20use%20microdata%20area:00119&in=state:04`)
     .then((response) => {
         const population = []
         for (let data of response.data) {
