@@ -56,7 +56,7 @@ export const getIncome = () => {
 }
 
 export const getPopulation = () => {
-    const response = axios.get(`https://api.census.gov/data/2021/acs/acs1/profile?get=NAME,DP03_0062E&for=public%20use%20microdata%20area:00119&in=state:04`)
+    const response = axios.get(`https://api.census.gov/data/2021/acs/acs1?get=NAME,B01001_001E&for=public%20use%20microdata%20area:*&in=state:04`)
     .then((response) => {
         const population = []
         for (let data of response.data) {
