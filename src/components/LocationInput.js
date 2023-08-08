@@ -40,21 +40,6 @@ export const getStates = () => {
 //     .catch(console.error);
 // }
 
-export const getIncome = () => {
-    const response = axios.get(`https://api.census.gov/data/2021/acs/acs1/profile?get=NAME,DP03_0062E&for=public%20use%20microdata%20area:00119&in=state:04`)
-    .then((response) => {
-        const income = []
-        for (let data of response.data) {
-            const incomeData = data[1];   // Accessing the "DP03_0062E" field
-            // console.log(`INCOME: ${incomeData}`);
-            income.push(incomeData)
-        }
-        return income
-    })
-    .catch(console.error);
-    return response
-}
-
 export const getIncomeRace = () => {
     const response = axios.get(`https://api.census.gov/data/2021/acs/acs1/profile?get=NAME,DP03_0062E,DP05_0078PE,DP05_0071PE,DP05_0037PE&for=public%20use%20microdata%20area:00119&in=state:04`)
     .then((response) => {

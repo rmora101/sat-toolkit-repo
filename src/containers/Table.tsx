@@ -71,7 +71,7 @@ const rows = [
           </Table>
         </TableContainer>
       ) : (
-        <p>Loading data or encountered an error.</p>
+        <p>Currently loading data. will hold place when user wants to select state</p>
       )}
     </div>
   );
