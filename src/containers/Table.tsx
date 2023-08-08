@@ -40,6 +40,7 @@ const rows = [
   createData('African American (%)', secondRowValues['AAMERICAN']),
   createData('Hispanic (%)', secondRowValues['HISPANIC']),
   createData('Caucasian (%)', secondRowValues['CAUCASIAN']),
+  createData('Asian (%)', secondRowValues['ASIAN'])
 ];
 
   return (
