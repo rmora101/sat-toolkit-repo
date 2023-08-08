@@ -37,6 +37,9 @@ export default function BasicTable() {
 
 const rows = [
   createData('Income', secondRowValues['INCOME']),
+  createData('African American (%)', secondRowValues['AAMERICAN']),
+  createData('Hispanic (%)', secondRowValues['HISPANIC']),
+  createData('Caucasian (%)', secondRowValues['CAUCASIAN']),
 ];
 
   return (
