@@ -64,8 +64,8 @@ export const getIncomeRace = () => {
             const AAmerican = data[2];
             const Hispanic = data[3];
             const Caucasian = data[4]
-            const IncomeAndRace = {'INCOME': Income, 'AAmerican': AAmerican, 'HISPANIC': Hispanic, 'CAUCASIAN': Caucasian }
-            // console.log(IncomeAndRace);
+            const IncomeAndRace = {'INCOME': Income, 'AAMERICAN': AAmerican, 'HISPANIC': Hispanic, 'CAUCASIAN': Caucasian }
+            // console.log(Income);
             stats.push(IncomeAndRace)
         }
         return stats

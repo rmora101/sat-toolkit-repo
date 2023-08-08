@@ -12,16 +12,13 @@ import { useEffect } from 'react';
 
 function createData(
   name: string,
-  Result: number, 
+  Result: string, 
 ) {
   return { name, Result};
 }
 
 const rows = [
-  createData('Income', 100000),
-  createData('Population',50000),
-  createData('race 1 (%)', 10),
-  createData('race 2', 3)
+  createData('Income', 'p'),
 ];
 
 export default function BasicTable() {
@@ -35,9 +32,12 @@ export default function BasicTable() {
     const fetchIncomeRace = async () => {
       const defaultStats = await getIncomeRace();
       setStatsIncomeAndRace(defaultStats);
+      // console.log( typeof defaultStats)
     };
     fetchIncomeRace();
   }, []);
+
+
 
   // useEffect(() => {
   //   const fetchPop = async () => {
@@ -48,10 +48,11 @@ export default function BasicTable() {
   // }, []);
   
 
-  console.log(statsIncomeAndRace)
+  // console.log(typeof statsIncomeAndRace)
+
   return (
     <div>
-    <TableContainer component={Paper} sx={{ width:'25%' }} >
+    <TableContainer component={Paper} sx={{ width:'40%' }} >
       <Table sx={{ minWidth: 300,  }} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -74,9 +75,9 @@ export default function BasicTable() {
         </TableBody>
       </Table>
     </TableContainer>
-    {/* <p>{statsIncomeAndRace['INCOME']}</p> */}
+
+    <p>{statsIncomeAndRace[1]['HISPANIC']}</p>
 
     </div>
   );
 }
-
