@@ -1,5 +1,5 @@
 import axios from "axios";
-// import {selectedStateId} from "../containers/Stateselect.tsx";
+import {selectedStateId} from "../containers/Stateselect.tsx";
 
 const URL = "https://api.census.gov/data/2021/acs/acs1?get=NAME,B01001_001E&for=public%20use%20microdata%20area:*&in=state:04"
 const authToken = process.env.CENSUS_TOKEN;
