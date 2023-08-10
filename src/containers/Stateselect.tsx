@@ -48,8 +48,7 @@ export default function SelectLabels() {
             </MenuItem>
           ))} 
         </Select>
-        <p>{selectedStateId}</p>
-        <FormHelperText>Required</FormHelperText>
+        {/* <FormHelperText>Required</FormHelperText> */}
       </FormControl>
     </div>
   );
