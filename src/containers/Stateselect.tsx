@@ -32,7 +32,7 @@ export default function SelectLabels() {
 
   return (
     <div>
-      <FormControl sx={{ m: 1, minWidth: 150, height:200}}>
+      <FormControl sx={{ m: 1, minWidth: 170, height:200}}>
         <InputLabel id="demo-simple-select-helper-label">State</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"

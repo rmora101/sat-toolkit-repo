@@ -6,7 +6,6 @@ const authToken = process.env.CENSUS_TOKEN;
 
 
 export const getStates = () => {
-
     const response = axios.get("https://api.census.gov/data/2016/acs/acs1?get=NAME&for=state:*")
         .then((response) => {
             const states = []
