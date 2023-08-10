@@ -8,7 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { getIncomeRace} from '../components/LocationInput';
 import { useEffect } from 'react';
-
+import axios from 'axios';
 
 function createData(
   name: string,
@@ -18,6 +18,7 @@ function createData(
 }
 export default function BasicTable() {
   const [statsIncomeAndRace, setStatsIncomeAndRace] = React.useState([]);
+  const [statsPopulation, setStatsPopulation] = React.useState([]);
 
   useEffect(() => {
     const fetchIncomeRace = async () => {
@@ -26,6 +27,26 @@ export default function BasicTable() {
     };
     fetchIncomeRace();
   }, []);
+
+  const getIncomeRace = () => {
+    const response = axios.get(`https://api.census.gov/data/2021/acs/acs1/profile?get=NAME,DP03_0062E,DP05_0078PE,DP05_0071PE,DP05_0037PE,DP05_0044PE,DP05_0039PE&for=public%20use%20microdata%20area:00112&in=state:04`)
+    .then((response) => {
+        const stats = []
+        for (let data of response.data) {
+            const Income = data[1];   // Accessing the "DP03_0062E" field
+            const AAmerican = data[2];
+            const Hispanic = data[3];
+            const Caucasian = data[4]
+            const Asian = data[5]
+            const Indigenous = data[6]
+            const IncomeAndRace = {'INCOME': Income, 'AAMERICAN': AAmerican, 'HISPANIC': Hispanic, 'CAUCASIAN': Caucasian, 'ASIAN': Asian, 'Indigenous': Indigenous }
+            stats.push(IncomeAndRace)
+        }
+        return stats
+    })
+    .catch(console.error);
+    return response
+  }
 
 
 
