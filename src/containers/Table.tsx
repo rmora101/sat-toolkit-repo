@@ -44,7 +44,7 @@ export default function BasicTable() {
   return (
     <div>
       {statsIncomeAndRace.length > 0 ? (
-        <TableContainer component={Paper} sx={{ m:1, minWidth: 500, height:400}}>
+        <TableContainer component={Paper} sx={{ m:1, minWidth: 750, height:450}}>
           <Table sx={{ minWidth: 300 }} aria-label="simple table">
             <TableHead>
               <TableRow>

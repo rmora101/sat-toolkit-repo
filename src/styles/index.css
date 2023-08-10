@@ -81,19 +81,20 @@ div { position: absolute; }
 
 
 #table_section {
-	top: 922px;
-	left: 160px;
-	width: 1120px;
+	top: 800px;
+	left: 250px;
+	width: 1000px;
 	height: 656px;
 }
 .table{
+	top: 1px;
 	margin: auto;
 	padding: 10%;
-	width: 800px;
-	height: 200px;
+	width: 850px;
+	height: 656px;
 	align-content: center;
 	text-align: center;
-	background-color: #756969;
+	/* background-color: #fdf7f7; */
 }
 
 #sat {
