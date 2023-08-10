@@ -6,6 +6,7 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import {getStates} from '../components/LocationInput.js';
 import {useEffect} from 'react';
+import { sizing } from '@mui/system';
 
 
 
@@ -89,7 +90,7 @@ export default function SelectLabels() {
 
   return (
     <div>
-      <FormControl sx={{ m: 1, minWidth: 120 }}>
+      <FormControl sx={{ m: 1, minWidth: 150, height:200}}>
         <InputLabel id="demo-simple-select-helper-label">State</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
@@ -97,18 +98,15 @@ export default function SelectLabels() {
           value={selectedStateId}
           label="states"
           onChange={handleChange}
+          style={{height:'80px'}}
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
           {states.map((state) => (
             <MenuItem key={state['stateId']} value={state['stateId']}>
               {state['stateName']}
             </MenuItem>
           ))} 
         </Select>
-        <p>{selectedStateId}</p>
-        <FormHelperText>Required</FormHelperText>
+        {/* <FormHelperText>Required</FormHelperText> */}
       </FormControl>
     </div>
   );
