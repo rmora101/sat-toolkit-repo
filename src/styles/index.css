@@ -1,3 +1,4 @@
+@import url("https://secure.exportkit.com/cdn/js/ek_googlefonts.js?v=6");
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -61,7 +62,7 @@ div { position: absolute; }
 }
 
 
-#rectangle_3 {
+#state_city_box {
 	top: 560px;
 	left: 160px;
 	width: 1120px;
@@ -69,14 +70,25 @@ div { position: absolute; }
 	border: 5px solid #000000;
 	background:rgba(255,255,255,1);
 }
+.cityInput{
+	/* top: 600px; */
+	/* left: 500px; */
+	margin: auto;
+	padding: 10%;
+	width: 150px;
+	height: 130px;
+	align-content: center;
+	text-align: center;
+	/* background-color: #a8a8a8; */
+}
 
 
-#rectangle_6 {
+#table_section {
 	top: 922px;
 	left: 160px;
 	width: 1120px;
 	height: 656px;
-	background:rgba(217,217,217,1);
+	color: rgb(0, 0, 0);
 }
 
 

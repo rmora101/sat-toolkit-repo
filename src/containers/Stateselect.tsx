@@ -32,7 +32,7 @@ export default function SelectLabels() {
 
   return (
     <div>
-      <FormControl sx={{ m: 2, minWidth: 120, minHeight:190 }}>
+      <FormControl sx={{ m: 1, minWidth: 150, height:200}}>
         <InputLabel id="demo-simple-select-helper-label">State</InputLabel>
         <Select
           labelId="demo-simple-select-helper-label"
@@ -40,19 +40,15 @@ export default function SelectLabels() {
           value={selectedStateId}
           label="states"
           onChange={handleChange}
-          sx={{"& .MuiSelect-select":{paddingTop: 5,
-            paddingBottom: 0.5,}}}
+          style={{height:'80px'}}
         >
-          {/* <MenuItem value="">
-            <em>None</em>
-          </MenuItem> */}
           {states.map((state) => (
             <MenuItem key={state['stateId']} value={state['stateId']}>
               {state['stateName']}
             </MenuItem>
           ))} 
         </Select>
-        {/* <p>{selectedStateId}</p> */}
+        <p>{selectedStateId}</p>
         <FormHelperText>Required</FormHelperText>
       </FormControl>
     </div>
