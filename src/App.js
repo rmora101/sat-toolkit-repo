@@ -31,16 +31,11 @@ function App() {
 					Select the State and City to view Data
           </div>
         <div id="rectangle_2"  >
+        <section className='table'>
+      <BasicTable></BasicTable>
+      </section>
         </div>
       </section>
-      
-      {/* <Navbar></Navbar>
-      <section className='cityInput'>
-        <Input></Input>
-      </section>
-      <section className='table'>
-      <BasicTable></BasicTable>
-      </section> */}
 
     </div>
   );
