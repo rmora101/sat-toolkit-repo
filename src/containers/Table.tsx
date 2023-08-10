@@ -33,11 +33,12 @@ export default function BasicTable() {
   console.log(secondRowValues)
 
   const rows = [
-    createData('Income', secondRowValues['INCOME']),
+    createData('Median Household Income', secondRowValues['INCOME']),
     createData('African American (%)', secondRowValues['AAMERICAN']),
     createData('Hispanic (%)', secondRowValues['HISPANIC']),
     createData('Caucasian (%)', secondRowValues['CAUCASIAN']),
-    createData('Asian (%)', secondRowValues['ASIAN'])
+    createData('Asian (%)', secondRowValues['ASIAN']),
+    createData('Indigenous (%)', secondRowValues['Indigenous'])
   ];
 
   return (

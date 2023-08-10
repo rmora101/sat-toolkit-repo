@@ -40,7 +40,7 @@ export const getStates = () => {
 // }
 
 export const getIncomeRace = () => {
-    const response = axios.get(`https://api.census.gov/data/2021/acs/acs1/profile?get=NAME,DP03_0062E,DP05_0078PE,DP05_0071PE,DP05_0037PE,DP05_0044PE,DP05_0039PE&for=public%20use%20microdata%20area:00119&in=state:04`)
+    const response = axios.get(`https://api.census.gov/data/2021/acs/acs1/profile?get=NAME,DP03_0062E,DP05_0078PE,DP05_0071PE,DP05_0037PE,DP05_0044PE,DP05_0039PE&for=public%20use%20microdata%20area:00112&in=state:04`)
     .then((response) => {
         const stats = []
         for (let data of response.data) {
@@ -50,7 +50,7 @@ export const getIncomeRace = () => {
             const Caucasian = data[4]
             const Asian = data[5]
             const Indigenous = data[6]
-            const IncomeAndRace = {'INCOME': Income, 'AAMERICAN': AAmerican, 'HISPANIC': Hispanic, 'CAUCASIAN': Caucasian, 'ASIAN': Asian, 'NATIVE': Indigenous }
+            const IncomeAndRace = {'INCOME': Income, 'AAMERICAN': AAmerican, 'HISPANIC': Hispanic, 'CAUCASIAN': Caucasian, 'ASIAN': Asian, 'Indigenous': Indigenous }
             console.log(Income);
             stats.push(IncomeAndRace)
         }
