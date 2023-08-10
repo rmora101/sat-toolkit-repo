@@ -9,7 +9,8 @@ function App() {
     <div className="App">
       <section id="content-container">
         <div id="page_desktop___1_ek1">
-        <div id="_bg__desktop___1_ek2"  ></div>
+        <div id="_bg__desktop___1_ek2"  >
+        </div>
 				<div id="header_rectangle"  ></div>
 				<div id="summary_rectangle"  ></div>
 				<div id="state_city_box"  >
@@ -18,6 +19,9 @@ function App() {
               </section>
         </div>
 				<div id="table_section">
+          <div className='table'>
+      <BasicTable></BasicTable>
+      </div>
         </div>
         <div id="sat" >SAT</div>
         </div>
@@ -31,9 +35,6 @@ function App() {
 					Select the State and City to view Data
           </div>
         <div id="rectangle_2"  >
-        <section className='table'>
-      <BasicTable></BasicTable>
-      </section>
         </div>
       </section>
 

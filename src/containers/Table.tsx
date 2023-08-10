@@ -21,32 +21,29 @@ export default function BasicTable() {
 
   useEffect(() => {
     const fetchIncomeRace = async () => {
-      try {
         const defaultStats = await getIncomeRace();
         setStatsIncomeAndRace(defaultStats);
-      } catch (error) {
-        console.error(error);
-        setStatsIncomeAndRace([]); // Set an empty array to handle errors
-      }
     };
     fetchIncomeRace();
   }, []);
 
+
+
   const secondRowValues = statsIncomeAndRace.length > 1 ? statsIncomeAndRace[1] : [];
   console.log(secondRowValues)
 
-const rows = [
-  createData('Income', secondRowValues['INCOME']),
-  createData('African American (%)', secondRowValues['AAMERICAN']),
-  createData('Hispanic (%)', secondRowValues['HISPANIC']),
-  createData('Caucasian (%)', secondRowValues['CAUCASIAN']),
-  createData('Asian (%)', secondRowValues['ASIAN'])
-];
+  const rows = [
+    createData('Income', secondRowValues['INCOME']),
+    createData('African American (%)', secondRowValues['AAMERICAN']),
+    createData('Hispanic (%)', secondRowValues['HISPANIC']),
+    createData('Caucasian (%)', secondRowValues['CAUCASIAN']),
+    createData('Asian (%)', secondRowValues['ASIAN'])
+  ];
 
   return (
     <div>
       {statsIncomeAndRace.length > 0 ? (
-        <TableContainer component={Paper} sx={{ width: '40%' }}>
+        <TableContainer component={Paper} sx={{ m:1, minWidth: 500, height:400}}>
           <Table sx={{ minWidth: 300 }} aria-label="simple table">
             <TableHead>
               <TableRow>
@@ -60,7 +57,7 @@ const rows = [
               {rows.map((row) => (
                 <TableRow
                   key={row.name}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                  sx={{ '&:last-child td, &:last-child th': { border: 1 } }}
                 >
                   <TableCell component="th" scope="row">
                     {row.name}
@@ -72,7 +69,7 @@ const rows = [
           </Table>
         </TableContainer>
       ) : (
-        <p>Currently loading data. will hold place when user wants to select state</p>
+        <p>Currently loading data. will hold place when user wants to select state. HERES THE TABL</p>
       )}
     </div>
   );

@@ -71,15 +71,12 @@ div { position: absolute; }
 	background:rgba(255,255,255,1);
 }
 .cityInput{
-	/* top: 600px; */
-	/* left: 500px; */
 	margin: auto;
 	padding: 10%;
 	width: 150px;
 	height: 130px;
 	align-content: center;
 	text-align: center;
-	/* background-color: #a8a8a8; */
 }
 
 
@@ -88,9 +85,16 @@ div { position: absolute; }
 	left: 160px;
 	width: 1120px;
 	height: 656px;
-	color: rgb(0, 0, 0);
 }
-
+.table{
+	margin: auto;
+	padding: 10%;
+	width: 800px;
+	height: 200px;
+	align-content: center;
+	text-align: center;
+	background-color: #756969;
+}
 
 #sat {
 	top: 19px;
