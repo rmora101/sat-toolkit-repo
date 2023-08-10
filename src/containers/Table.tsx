@@ -6,7 +6,6 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { getIncomeRace} from '../components/LocationInput';
 import { useEffect } from 'react';
 import axios from 'axios';
 
@@ -18,7 +17,7 @@ function createData(
 }
 export default function BasicTable() {
   const [statsIncomeAndRace, setStatsIncomeAndRace] = React.useState([]);
-  const [statsPopulation, setStatsPopulation] = React.useState([]);
+  // const [statsPopulation, setStatsPopulation] = React.useState([]);
 
   useEffect(() => {
     const fetchIncomeRace = async () => {
@@ -91,7 +90,7 @@ export default function BasicTable() {
           </Table>
         </TableContainer>
       ) : (
-        <p>Currently loading data. will hold place when user wants to select state. HERES THE TABL</p>
+        <p>Currently loading data.</p>
       )}
     </div>
   );
