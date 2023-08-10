@@ -149,6 +149,21 @@ div { position: absolute; }
 	color:#000000;
 }
 
+#census-info {
+	top: 1500px;
+	left: 221px;
+	width: 951px;
+	height: 200px;
+	overflow: hidden;
+	font-family: Inter;
+	font-size: 32px;
+	text-align: center;
+	color:#ff3c3c;
+	background-color: aqua;
+}
+
+
+
 
 #rectangle_2 {
 	top: 1950px;

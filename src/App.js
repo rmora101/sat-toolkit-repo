@@ -36,6 +36,10 @@ function App() {
           </div>
         <div id="rectangle_2"  >
         </div>
+        <div id="census-info" >
+					Data Summary
+          <p>Heres more information about the data you are pulling</p>
+          </div>
       </section>
 
     </div>
