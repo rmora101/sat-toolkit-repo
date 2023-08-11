@@ -13,26 +13,20 @@ import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-// import {useEffect} from 'react';
-// import axios from 'axios';
-// import {SelectLables} from './Stateselect.tsx'
 
-function createData(
-  name: string,
-  Result: string, 
-) {
-  return { name, Result};
-}
+
 export default function BasicTable() {
 
     const [selectedStateId, setSelectedStateId] = React.useState('');
     const [selectedArea, setSelectedArea] = React.useState('');
     const [areas, setAreas] = React.useState([]);
     const [states, setStates] = React.useState([]);
-
+    const [statsIncomeAndRace, setStatsIncomeAndRace] = React.useState([]);
+    const [statsPopulation, setStatsPopulation] = React.useState([]);
+  
     const handleChange = (event: SelectChangeEvent) => {
         setSelectedStateId(event.target.value);
-        // setSelectedArea(event.target.value);
+        setSelectedArea(event.target.value);
     };
 
 
@@ -54,7 +48,7 @@ export default function BasicTable() {
                     const stateData = {'stateName': name, 'stateId': state};
                     states.push(stateData)
                 }
-                console.log(states);
+                // console.log(states);
                 return states
             })
             .catch(() => {return'hello'});
@@ -69,7 +63,7 @@ export default function BasicTable() {
             );
             const areasData = response.data.map((data) => ({ areaName: data[0], areaCode: data[3] }));
             setAreas(areasData);
-                console.log(areas);
+                // console.log(areas);
             } catch (error) {
             console.log(error);
             }
@@ -79,32 +73,14 @@ export default function BasicTable() {
         fetchArea();
         }, [selectedStateId]);
 
-
-
-  const [statsIncomeAndRace, setStatsIncomeAndRace] = React.useState([]);
-  const [statsPopulation, setStatsPopulation] = React.useState([]);
-
   useEffect(() => {
-    const fetchIncomeRace = async () => {
-        const defaultStats = await getIncomeRace();
-        setStatsIncomeAndRace(defaultStats);
-    };
-    fetchIncomeRace();
-  }, []);
-
-  useEffect(() => {
-    const fetchPop = async () => {
-      const defaultPop = await getPopulation();
-      setStatsPopulation(defaultPop)
-      
-    };
-    fetchPop();
-    },[])
-
-  const getIncomeRace = () => {
-    const response = axios.get(`https://api.census.gov/data/2021/acs/acs1/profile?get=NAME,DP03_0062E,DP05_0078PE,DP05_0071PE,DP05_0037PE,DP05_0044PE,DP05_0039PE&for=public%20use%20microdata%20area:*&in=state:04`)
-    .then((response) => {
-        const stats = []
+        const fetchIncomeRace = async () => {
+        if (selectedStateId && selectedArea) {
+            try {
+            const response = await axios.get(
+              `https://api.census.gov/data/2021/acs/acs1/profile?get=NAME,DP03_0062E,DP05_0078PE,DP05_0071PE,DP05_0037PE,DP05_0044PE,DP05_0039PE&for=public%20use%20microdata%20area:${selectedArea}&in=state:${selectedStateId}`
+            );
+            const stats = []
         for (let data of response.data) {
             const Income = data[1];   // Accessing the "DP03_0062E" field
             const AAmerican = data[2];
@@ -113,32 +89,45 @@ export default function BasicTable() {
             const Asian = data[5]
             const Indigenous = data[6]
             const IncomeAndRace = {'INCOME': Income, 'AAMERICAN': AAmerican, 'HISPANIC': Hispanic, 'CAUCASIAN': Caucasian, 'ASIAN': Asian, 'Indigenous': Indigenous }
-            stats.push(IncomeAndRace)
+            stats.push(IncomeAndRace)}
+                console.log(stats);
+            setStatsIncomeAndRace(stats);
+            } catch (error) {
+            console.log(error);
+            }
         }
-        return stats
-    })
-    .catch(console.error);
-    return response
-  }
+        };
+        fetchIncomeRace();
+        }, [selectedArea,selectedStateId]);
+  
+  useEffect(() => {
+          const fetchPop = async () => {
+          if (selectedStateId && selectedArea) {
+              try {
+              const response = await axios.get(
+                `https://api.census.gov/data/2021/acs/acs1?get=NAME,B01001_001E&for=public%20use%20microdata%20area:${selectedArea}&in=state:${selectedStateId}`
+              );
+              const population = []
+              for (let data of response.data) {
+                  const popIncome = data[1];   // Accessing the "DP03_0062E" field
+                  const popDict = {'POPULATION':popIncome}
+                  population.push(popDict)}
+                  console.log(population);
+              setStatsPopulation(population)
+              } catch (error) {
+              console.log(error);
+              }
+          }
+          };
+          fetchPop();
+          }, [selectedArea,selectedStateId]);
 
-  const getPopulation = () => {
-    const response = axios.get(`https://api.census.gov/data/2021/acs/acs1?get=NAME,B01001_001E&for=public%20use%20microdata%20area:00119&in=state:04`)
-    .then((response) => {
-        const population = []
-        for (let data of response.data) {
-            const popIncome = data[1];   // Accessing the "DP03_0062E" field
-            const popDict = {'POPULATION':popIncome}
-            // console.log(`INCOME: ${incomeData}`);
-            population.push(popDict)
-        }
-        console.log(population)
-        return population
-    })
-    .catch(console.error);
-    return response
+function createData(
+  name: string,
+  Result: string, 
+) {
+  return { name, Result};
 }
-
-
 
   const secondRowValues = statsIncomeAndRace.length > 1 ? statsIncomeAndRace[1] : [];
   const secondRowPop = statsPopulation.length > 1 ? statsPopulation[1] :[];
@@ -158,7 +147,7 @@ export default function BasicTable() {
     <section id='all-data'>
     <div>
       {statsIncomeAndRace.length > 0 ? (
-        <TableContainer component={Paper} sx={{ m:1, minWidth: 750, height:450}}>
+        <TableContainer component={Paper} sx={{ m:1, minWidth: 750, height:450}} >
           <Table sx={{ minWidth: 300 }} aria-label="simple table">
             <TableHead>
               <TableRow>
@@ -168,7 +157,7 @@ export default function BasicTable() {
                 </TableCell>
               </TableRow>
             </TableHead>
-            <TableBody>
+            <TableBody >
               {rows.map((row) => (
                 <TableRow
                   key={row.name}
