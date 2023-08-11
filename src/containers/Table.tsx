@@ -69,7 +69,6 @@ export default function BasicTable() {
             }
         }
         };
-        // setAreas(fetchArea);
         fetchArea();
         }, [selectedStateId]);
 
@@ -90,7 +89,8 @@ export default function BasicTable() {
             const Indigenous = data[6]
             const IncomeAndRace = {'INCOME': Income, 'AAMERICAN': AAmerican, 'HISPANIC': Hispanic, 'CAUCASIAN': Caucasian, 'ASIAN': Asian, 'Indigenous': Indigenous }
             stats.push(IncomeAndRace)}
-                console.log(stats);
+            
+            console.log(stats);
             setStatsIncomeAndRace(stats);
             } catch (error) {
             console.log(error);
