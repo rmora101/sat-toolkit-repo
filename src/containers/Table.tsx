@@ -145,9 +145,9 @@ function createData(
 
   return (
     <section id='all-data'>
-    <div>
+    <div id='table'>
       {statsIncomeAndRace.length > 0 ? (
-        <TableContainer component={Paper} sx={{ m:1, minWidth: 750, height:450}} >
+        <TableContainer component={Paper} sx={{ m:1, minWidth: 750, height:426}} >
           <Table sx={{ minWidth: 300 }} aria-label="simple table">
             <TableHead>
               <TableRow>
@@ -173,10 +173,10 @@ function createData(
           </Table>
         </TableContainer>
       ) : (
-        <p>Currently loading data.</p>
+        <p>*Select state and area to view data</p>
       )}
     </div>
-    <div>
+    <div id='menu'>
     <FormControl sx={{ m: 1, minWidth: 170, height:200}}>
             <InputLabel id="demo-simple-select-helper-label">State</InputLabel>
             <Select
@@ -195,7 +195,7 @@ function createData(
             </Select>
             <FormHelperText>Required</FormHelperText>
         </FormControl>
-        <FormControl sx={{ m: 1, minWidth: 170, height:200}}>
+        <FormControl sx={{ m: 1, minWidth: 250, height:200}}>
             <InputLabel id="demo-simple-select-helper-label">Area</InputLabel>
             <Select
             labelId="demo-simple-select-helper-label"

@@ -19,10 +19,8 @@ function App() {
         <BasicTable></BasicTable>
               </section>
         </div>
-				<div id="table_section">
-          <div className='table'>
-      </div>
-        </div>
+				{/* <div id="table_section">
+        </div> */}
         <div id="sat" >SAT</div>
         </div>
         <div id="welcome_to_the_skatepark_advocate_toolkit__" >
