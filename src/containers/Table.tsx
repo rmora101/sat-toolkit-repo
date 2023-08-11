@@ -50,7 +50,7 @@ export default function BasicTable() {
 
 
   const secondRowValues = statsIncomeAndRace.length > 1 ? statsIncomeAndRace[1] : [];
-  console.log(secondRowValues)
+  // console.log(secondRowValues)
 
   const rows = [
     createData('Median Household Income', secondRowValues['INCOME']),
