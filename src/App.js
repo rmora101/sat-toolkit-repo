@@ -2,6 +2,7 @@ import React from 'react';
 import BasicTable from './containers/Table.tsx';
 import Input from './containers/Stateselect.tsx';
 import './styles/index.css';
+// import SelectLables from './containers/StateandTable.tsx';
 
 
 function App() {
@@ -15,12 +16,11 @@ function App() {
 				<div id="summary_rectangle"  ></div>
 				<div id="state_city_box"  >
         <section className='cityInput'>
-              <Input></Input>
+        <BasicTable></BasicTable>
               </section>
         </div>
 				<div id="table_section">
           <div className='table'>
-      <BasicTable></BasicTable>
       </div>
         </div>
         <div id="sat" >SAT</div>
@@ -37,6 +37,7 @@ function App() {
         <div id="rectangle_2"  >
         </div>
         <div id="census-info" >
+          
 					Data Summary
           <p>Heres more information about the data you are pulling</p>
           </div>

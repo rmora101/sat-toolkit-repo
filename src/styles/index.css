@@ -70,13 +70,19 @@ div { position: absolute; }
 	border: 5px solid #000000;
 	background:rgba(255,255,255,1);
 }
+.all-data{
+	align-content: center;
+	text-align: center;
+	background-color: #ff3c3c;
+}
 .cityInput{
 	margin: auto;
 	padding: 10%;
-	width: 150px;
-	height: 130px;
+	width: 1120px;
+	height: 700px;
 	align-content: center;
 	text-align: center;
+	background-color: aquamarine;
 }
 
 
@@ -86,7 +92,7 @@ div { position: absolute; }
 	width: 1000px;
 	height: 656px;
 }
-.table{
+/* .table{
 	top: 1px;
 	margin: auto;
 	padding: 10%;
@@ -94,8 +100,8 @@ div { position: absolute; }
 	height: 656px;
 	align-content: center;
 	text-align: center;
-	/* background-color: #fdf7f7; */
-}
+	background-color: #fdf7f7;
+} */
 
 #sat {
 	top: 19px;
