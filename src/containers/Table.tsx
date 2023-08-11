@@ -173,7 +173,7 @@ function createData(
           </Table>
         </TableContainer>
       ) : (
-        <p>*Select state and area to view data</p>
+        <p>*Select state and area to view table</p>
       )}
     </div>
     <div id='menu'>

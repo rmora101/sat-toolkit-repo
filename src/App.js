@@ -30,14 +30,16 @@ function App() {
 					This website will provide you with data most needed to begin your skatepark building journey.
 				</div>
 				<div id="select_the_state_and_city_to_view_data" >
-					Select the State and City to view Data
+					Select your State and City/Area to view Data
           </div>
         <div id="rectangle_2"  >
         </div>
         <div id="census-info" >
           
-					Data Summary
-          <p>Heres more information about the data you are pulling</p>
+					<h4>Data Summary</h4>
+          <p>With this tool, you are able to pull data about median income, population,
+            and more from thousands of locations in the United States.</p>
+            <p>Limitations:</p>
           </div>
       </section>
 
