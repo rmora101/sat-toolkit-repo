@@ -16,7 +16,7 @@ export default function SelectLabels() {
 
   const handleChange = (event: SelectChangeEvent) => {
     setSelectedStateId(event.target.value);
-    setSelectedArea(event.target.value);
+    // setSelectedArea(event.target.value);
   };
 
 
@@ -53,12 +53,6 @@ export default function SelectLabels() {
           );
           const areasData = response.data.map((data) => ({ areaName: data[0], areaCode: data[3] }));
           setAreas(areasData);
-          // for (let data of response.data) {
-          //   const name = data[0]
-          //   const microDataArea = data[3]; // access micro area code
-          //   const areaData = {'AreaName': name, 'AreaCode' :microDataArea};
-          //   areas.push(areaData)}
-            // setSelectedArea(response)
             console.log(areas);
         } catch (error) {
           console.log(error);
@@ -68,9 +62,7 @@ export default function SelectLabels() {
       // setAreas(fetchArea);
       fetchArea();
     }, [selectedStateId]);
-  // console.log(selectedStateId)
-  // console.log(Object.entries(areas))
-  // console.log(typeof states)
+
 
 
   return (
@@ -103,9 +95,6 @@ export default function SelectLabels() {
           onChange={(event) => setSelectedArea(event.target.value)}
           style={{height:'80px'}}
         >
-          <MenuItem value="">
-            <em>None</em>
-            </MenuItem>
             {areas.map((area) => (
             <MenuItem key={area['areaCode']} value={area['areaCode']}>
               {area['areaName']}

@@ -17,7 +17,7 @@ function createData(
 }
 export default function BasicTable() {
   const [statsIncomeAndRace, setStatsIncomeAndRace] = React.useState([]);
-  // const [statsPopulation, setStatsPopulation] = React.useState([]);
+  const [statsPopulation, setStatsPopulation] = React.useState([]);
 
   useEffect(() => {
     const fetchIncomeRace = async () => {
@@ -26,6 +26,15 @@ export default function BasicTable() {
     };
     fetchIncomeRace();
   }, []);
+
+  useEffect(() => {
+    const fetchPop = async () => {
+      const defaultPop = await getPopulation();
+      setStatsPopulation(defaultPop)
+      
+    };
+    fetchPop();
+    },[])
 
   const getIncomeRace = () => {
     const response = axios.get(`https://api.census.gov/data/2021/acs/acs1/profile?get=NAME,DP03_0062E,DP05_0078PE,DP05_0071PE,DP05_0037PE,DP05_0044PE,DP05_0039PE&for=public%20use%20microdata%20area:00112&in=state:04`)
@@ -47,12 +56,31 @@ export default function BasicTable() {
     return response
   }
 
+  const getPopulation = () => {
+    const response = axios.get(`https://api.census.gov/data/2021/acs/acs1?get=NAME,B01001_001E&for=public%20use%20microdata%20area:00119&in=state:04`)
+    .then((response) => {
+        const population = []
+        for (let data of response.data) {
+            const popIncome = data[1];   // Accessing the "DP03_0062E" field
+            const popDict = {'POPULATION':popIncome}
+            // console.log(`INCOME: ${incomeData}`);
+            population.push(popDict)
+        }
+        console.log(population)
+        return population
+    })
+    .catch(console.error);
+    return response
+}
+
 
 
   const secondRowValues = statsIncomeAndRace.length > 1 ? statsIncomeAndRace[1] : [];
+  const secondRowPop = statsPopulation.length > 1 ? statsPopulation[1] :[];
   // console.log(secondRowValues)
 
   const rows = [
+    createData('Population', secondRowPop['POPULATION']),
     createData('Median Household Income', secondRowValues['INCOME']),
     createData('African American (%)', secondRowValues['AAMERICAN']),
     createData('Hispanic (%)', secondRowValues['HISPANIC']),
