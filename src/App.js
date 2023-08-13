@@ -1,6 +1,5 @@
 import React from 'react';
 import BasicTable from './containers/Table.tsx';
-import Input from './containers/Stateselect.tsx';
 import './styles/index.css';
 // import SelectLables from './containers/StateandTable.tsx';
 
