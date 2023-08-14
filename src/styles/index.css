@@ -24,6 +24,8 @@ img { position: absolute; display: block; margin: 0px; border: none; padding: 0p
 /* Only edit this if you know what you are doing! */
 div { position: absolute; }
 
+
+
 #content-container { display: block; position: relative; width: 1440px; width: 1440px; height: 2023px; overflow: hidden; display: block;  margin-left: auto; margin-right: auto;  }
 
 
@@ -181,6 +183,11 @@ div { position: absolute; }
 	width: 1440px;
 	height: 73px;
 	background:rgba(9.56,9.56,9.56,1);
+}
+
+#rectangle_2 footer {
+	color: white;
+	text-align: center;
 }
 
 
