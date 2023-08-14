@@ -15,7 +15,7 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 const authToken = process.env.REACT_APP_CENSUS_TOKEN;
-console.log(authToken)
+
 
 export default function BasicTable() {
 
