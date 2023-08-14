@@ -14,6 +14,8 @@ import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
+const authToken = process.env.REACT_APP_CENSUS_TOKEN;
+console.log(authToken);
 
 export default function BasicTable() {
 
@@ -59,7 +61,7 @@ export default function BasicTable() {
         if (selectedStateId) {
             try {
             const response = await axios.get(
-                `https://api.census.gov/data/2021/acs/acs1?get=NAME,B01001_001E&for=public%20use%20microdata%20area:*&in=state:${selectedStateId}`
+                `https://api.census.gov/data/2021/acs/acs1?get=NAME,B01001_001E&for=public%20use%20microdata%20area:*&in=state:${selectedStateId}&key=${authToken}`
             );
             const areasData = response.data.map((data) => ({ areaName: data[0], areaCode: data[3] }));
             setAreas(areasData);
@@ -77,7 +79,7 @@ export default function BasicTable() {
         if (selectedStateId && selectedArea) {
             try {
             const response = await axios.get(
-              `https://api.census.gov/data/2021/acs/acs1/profile?get=NAME,DP03_0062E,DP05_0078PE,DP05_0071PE,DP05_0037PE,DP05_0044PE,DP05_0039PE&for=public%20use%20microdata%20area:${selectedArea}&in=state:${selectedStateId}`
+              `https://api.census.gov/data/2021/acs/acs1/profile?get=NAME,DP03_0062E,DP05_0078PE,DP05_0071PE,DP05_0037PE,DP05_0044PE,DP05_0039PE&for=public%20use%20microdata%20area:${selectedArea}&in=state:${selectedStateId}&key=${authToken}`
             );
             const stats = []
         for (let data of response.data) {
@@ -105,7 +107,7 @@ export default function BasicTable() {
           if (selectedStateId && selectedArea) {
               try {
               const response = await axios.get(
-                `https://api.census.gov/data/2021/acs/acs1?get=NAME,B01001_001E&for=public%20use%20microdata%20area:${selectedArea}&in=state:${selectedStateId}`
+                `https://api.census.gov/data/2021/acs/acs1?get=NAME,B01001_001E&for=public%20use%20microdata%20area:${selectedArea}&in=state:${selectedStateId}&key=${authToken}`
               );
               const population = []
               for (let data of response.data) {
