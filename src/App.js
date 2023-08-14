@@ -39,7 +39,7 @@ function App() {
       </section>
       <div id="rectangle_2"  >
       <footer>
-	      <p>Created by Ruth Mora © 2020</p>
+	      <p>Created by Ruth Mora © 2023</p>
       </footer>
         </div>
       
