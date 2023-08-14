@@ -15,7 +15,7 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 const authToken = process.env.REACT_APP_CENSUS_TOKEN;
-
+console.log(authToken)
 
 export default function BasicTable() {
 
@@ -50,8 +50,9 @@ export default function BasicTable() {
                     const stateData = {'stateName': name, 'stateId': state};
                     states.push(stateData)
                 }
-                // console.log(states);
-                return states
+                let cleanStates = states.filter(function(states) {return states.stateName !== "NAME";});
+                return cleanStates
+                
             })
             .catch(() => {return'hello'});
             return response
@@ -64,8 +65,8 @@ export default function BasicTable() {
                 `https://api.census.gov/data/2021/acs/acs1?get=NAME,B01001_001E&for=public%20use%20microdata%20area:*&in=state:${selectedStateId}&key=${authToken}`
             );
             const areasData = response.data.map((data) => ({ areaName: data[0], areaCode: data[3] }));
-            setAreas(areasData);
-                // console.log(areas);
+            let cleanAreas = areasData.filter(function(areasData) {return areasData.areaName !== "NAME";});
+            setAreas(cleanAreas);
             } catch (error) {
             console.log(error);
             }
@@ -133,7 +134,7 @@ function createData(
 
   const secondRowValues = statsIncomeAndRace.length > 1 ? statsIncomeAndRace[1] : [];
   const secondRowPop = statsPopulation.length > 1 ? statsPopulation[1] :[];
-  // console.log(secondRowValues)
+
 
   const rows = [
     createData('Median Household Income', secondRowValues['INCOME']),

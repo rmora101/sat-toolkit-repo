@@ -1,7 +1,7 @@
 import React from 'react';
 import BasicTable from './containers/Table.tsx';
 import './styles/index.css';
-// import SelectLables from './containers/StateandTable.tsx';
+
 
 
 function App() {
