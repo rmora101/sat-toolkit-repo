@@ -21,7 +21,7 @@ function App() {
         <div id="sat" >SAT</div>
         </div>
         <div id="welcome_to_the_skatepark_advocate_toolkit__" >
-					Welcome to the Skatepark Advocate Toolkit !
+					<h1>Welcome to the Skatepark Advocate Toolkit ! </h1>
 				</div>
 				<div id="this_website_will_provide_you_with_data_most_needed_to_begin_your_skatepark_building_journey_" >
 					<p>This website will provide you with data most needed to begin your skatepark building journey.<br></br> With this tool, you are able to pull median household income, population, and demographic data
