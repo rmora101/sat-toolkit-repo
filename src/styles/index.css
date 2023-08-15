@@ -86,7 +86,6 @@ div { position: absolute; }
 	height: 700px;
 	align-content: center;
 	text-align: center;
-	/* background-color: aquamarine; */
 }
 #menu{
 	top: -11px;
@@ -97,19 +96,26 @@ div { position: absolute; }
 	height: 50px;
 	align-content: center;
 	text-align: center;
-	/* background-color: #fdf7f7; */
 }
 
 #table{
 	top: 300px;
-	left: 160px;
-	/* background-color: bisque; */
+	left: -10px;
 }
 #table p{
 	color: red;
-	font-size: larger;
+	font-size: 20px;
 	text-align: right;
-	/* background-color: aquamarine; */
+}
+#skate_table{
+	top: 300px;
+	left: 815px;
+}
+
+#skate_table p{
+	color: red;
+	font-size: 20px;
+	text-align: right;
 }
 
 #sat {
@@ -191,7 +197,9 @@ div { position: absolute; }
 	color:#000000;
 }
 
-
+#skater_estimates{
+    font-size: 40px;
+}
 
 #rectangle_2 {
 	top: 1950px;

@@ -51,7 +51,6 @@ export default function BasicTable() {
                     states.push(stateData)
                 }
                 let cleanStates = states.filter(function(states) {return states.stateName !== "NAME";});
-                console.log(cleanStates.sort())
                 return cleanStates
                 
             })
@@ -93,8 +92,6 @@ export default function BasicTable() {
             const Indigenous = data[6]
             const IncomeAndRace = {'INCOME': Income, 'AAMERICAN': AAmerican, 'HISPANIC': Hispanic, 'CAUCASIAN': Caucasian, 'ASIAN': Asian, 'Indigenous': Indigenous }
             stats.push(IncomeAndRace)}
-            
-            console.log(stats);
             setStatsIncomeAndRace(stats);
             } catch (error) {
             console.log(error);
@@ -116,7 +113,6 @@ export default function BasicTable() {
                   const popIncome = data[1];   // Accessing the "DP03_0062E" field
                   const popDict = {'POPULATION':popIncome}
                   population.push(popDict)}
-                  console.log(population);
               setStatsPopulation(population)
               } catch (error) {
               console.log(error);
@@ -145,6 +141,24 @@ function createData(
     createData('Caucasian (%)', secondRowValues['CAUCASIAN']),
     createData('Asian (%)', secondRowValues['ASIAN']),
     createData('Indigenous (%)', secondRowValues['Indigenous'])
+  ];
+  function createSkateData(
+    name: string,
+    Result: number, 
+  ) {
+    return { name, Result};
+  }
+  const floatPop = parseFloat(secondRowPop['POPULATION']);
+  const casualSkaters = floatPop * .03;
+  const coreSkaters = casualSkaters * .279;
+  const peakLoad = coreSkaters * .33;
+  const totalTerrain = floatPop * .414
+
+  const skateRows = [
+    createSkateData('Number of Casual Skaters', (casualSkaters.toFixed(0))),
+    createSkateData('Number of Core Skaters', (coreSkaters.toFixed(0))),
+    createSkateData('Peak Load', (peakLoad.toFixed(0))),
+    createSkateData('Terrain Needed in Square Feet', ((totalTerrain.toFixed(1))))
   ];
 
   return (
@@ -178,6 +192,37 @@ function createData(
         </TableContainer>
       ) : (
         <p>*Select state and area to view table</p>
+      )}
+    </div>
+    <div id='skate_table'>
+      {statsIncomeAndRace.length > 0 ? (
+        <TableContainer component={Paper} sx={{ m:1, minWidth: 300, height:288}} >
+          <Table sx={{ minWidth: 300 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell style={{ fontWeight: 'bold' }}>* Skateboarder Data</TableCell>
+                <TableCell style={{ fontWeight: 'bold' }} align="right">
+                  Result
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody >
+              {skateRows.map((row) => (
+                <TableRow
+                  key={row.name}
+                  sx={{ '&:last-child td, &:last-child th': { border: 1 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {row.name}
+                  </TableCell>
+                  <TableCell align="right">{row.Result}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      ) : (
+        <p>*Select state and area to view Skaterboarder Data based off area Population</p>
       )}
     </div>
     <div id='menu'>
