@@ -51,6 +51,7 @@ export default function BasicTable() {
                     states.push(stateData)
                 }
                 let cleanStates = states.filter(function(states) {return states.stateName !== "NAME";});
+                console.log(cleanStates.sort())
                 return cleanStates
                 
             })

@@ -32,7 +32,7 @@ function App() {
           </div>
         <div id="census-info" >
 					<h1>Data Summary</h1>
-          <p>This data derives from the American Community Survey 2021 provided by the U.S Census Bureau. Visit <a href='https://www.census.gov/programs-surveys/acs/data.html'>U.S Census</a> for more info on ACS.</p>
+          <p>This data derives from the American Community Survey 2021 provided by the U.S Census Bureau. Visit <a href='https://www.census.gov/programs-surveys/acs/data.html'>U.S Census</a> for more information on ACS.</p>
           
             <h2>Limitations</h2>
           </div>
