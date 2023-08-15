@@ -165,7 +165,7 @@ function createData(
     <section id='all-data'>
     <div id='table'>
       {statsIncomeAndRace.length > 0 ? (
-        <TableContainer component={Paper} sx={{ m:1, minWidth: 750, height:426}} >
+        <TableContainer component={Paper} sx={{ m:1, minWidth: 720, height:426}} >
           <Table sx={{ minWidth: 300 }} aria-label="simple table">
             <TableHead>
               <TableRow>
@@ -196,7 +196,7 @@ function createData(
     </div>
     <div id='skate_table'>
       {statsIncomeAndRace.length > 0 ? (
-        <TableContainer component={Paper} sx={{ m:1, minWidth: 300, height:288}} >
+        <TableContainer component={Paper} sx={{ m:1, minWidth: 330, height:270}} >
           <Table sx={{ minWidth: 300 }} aria-label="simple table">
             <TableHead>
               <TableRow>

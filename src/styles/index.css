@@ -109,7 +109,7 @@ div { position: absolute; }
 }
 #skate_table{
 	top: 300px;
-	left: 815px;
+	left: 790px;
 }
 
 #skate_table p{
@@ -189,10 +189,10 @@ div { position: absolute; }
 	text-align: center;
 	color:#000000;
 }
-#census-info h2 {
+#census-info p {
 
 	font-family: 'Inter';
-	font-size: 40px;
+	font-size: 25px;
 	text-align: center;
 	color:#000000;
 }

@@ -33,18 +33,15 @@ function App() {
         <div id="census-info" >
 					<h1>Data Summary</h1>
           <p>This data derives from the American Community Survey 2021 provided by the U.S Census Bureau. Visit <a href='https://www.census.gov/programs-surveys/acs/data.html'>U.S Census</a> for more information on ACS.</p>
-          <div id="skater_estimates">
-            Based off your areas population, This will calculate the service area needed for skateparks.<br></br>This will also calculate the number of skaters and more in your area.
+            <p>Skateboarder Data Table returns data based off your areas population. Visit <a href='https://publicskateparkguide.org/vision/skatepark-adoption-model/>'> Skatepark Adoption Model</a> for more information behind the estimates. </p>
           </div>
-            {/* <h2>Limitations</h2> */}
-          </div>
-      </section>
+      
       <div id="rectangle_2"  >
       <footer>
-	      <p>Created by Ruth Mora © 2023</p>
+	    <p>Created by Ruth Mora © 2023</p>
       </footer>
         </div>
-      
+        </section>
 
     </div>
   );
