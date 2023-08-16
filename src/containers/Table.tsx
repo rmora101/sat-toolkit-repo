@@ -170,6 +170,9 @@ function createData(
     { name: 'Asian', value: (parseFloat(secondRowValues['ASIAN'])) },
     { name: 'Indigenous', value: (parseFloat(secondRowValues['Indigenous'])) },
   ];
+
+  const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042','#8884d8'];
+
   return (
     <section id='all-data'>
     <div id='table'>
@@ -276,17 +279,21 @@ function createData(
       {statsIncomeAndRace.length > 0 ? (
         <ResponsiveContainer width="100%" height="100%">
             <PieChart width={400} height={400}>
-              <Pie
-                dataKey="value"
-                startAngle={180}
-                endAngle={0}
-                data={chartData}
-                cx={200}
-                cy={200}
-                outerRadius={80}
-                fill="#8884d8"
-                label
-              />
+            <Pie
+              data={chartData}
+              dataKey="value"
+              startAngle={180}
+              endAngle={0}
+              cx={200}
+              cy={200}
+              outerRadius={80}
+              fill="#8884d8"
+              label
+            >
+              {chartData.map((entry, index) => (
+                <Cell key={index} fill={COLORS[index % COLORS.length]} />
+              ))}
+            </Pie>
             </PieChart>
           </ResponsiveContainer>
       ) : (
