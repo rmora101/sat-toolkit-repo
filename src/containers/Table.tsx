@@ -14,7 +14,7 @@ import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import {PureComponent} from 'react'
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Legend, Cell, ResponsiveContainer } from 'recharts';
 
 const authToken = process.env.REACT_APP_CENSUS_TOKEN;
 
@@ -278,7 +278,8 @@ function createData(
     <div id='pie_chart'>
       {statsIncomeAndRace.length > 0 ? (
         <ResponsiveContainer width="100%" height="100%">
-            <PieChart width={400} height={400}>
+            <PieChart width={450} height={450}>
+              <Legend layout='horizontal' verticalAlign='middle' align='right'/>
             <Pie
               data={chartData}
               dataKey="value"
