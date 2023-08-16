@@ -131,10 +131,9 @@ div { position: absolute; }
 }
 
 #pie_chart{
-	top: 610px;
-	left: 808px;
-	/* background-color: #ff3c3c; */
-	width: 300px;
+	top: 500px;
+	left: 750px;
+	width: 350px;
 	height: 250px;
 }
 

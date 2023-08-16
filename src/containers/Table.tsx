@@ -162,13 +162,13 @@ function createData(
     createSkateData('Peak Load', (peakLoad.toFixed(0))),
     createSkateData('Terrain Needed in Square Feet', ((totalTerrain.toFixed(1))))
   ];
+
   const chartData = [
-    { name: 'Group A', value: 400 },
-    { name: 'Group B', value: 300 },
-    { name: 'Group C', value: 300 },
-    { name: 'Group D', value: 200 },
-    { name: 'Group E', value: 278 },
-    { name: 'Group F', value: 189 },
+    { name: 'African American', value: (parseFloat(secondRowValues['AAMERICAN'])) },
+    { name: 'Hispanic', value: (parseFloat(secondRowValues['HISPANIC'])) },
+    { name: 'Caucasian', value: (parseFloat(secondRowValues['CAUCASIAN'])) },
+    { name: 'Asian', value: (parseFloat(secondRowValues['ASIAN'])) },
+    { name: 'Indigenous', value: (parseFloat(secondRowValues['Indigenous'])) },
   ];
   return (
     <section id='all-data'>
@@ -273,21 +273,26 @@ function createData(
         </FormControl>
     </div>
     <div id='pie_chart'>
-    <ResponsiveContainer width="100%" height="100%">
-        <PieChart width={400} height={400}>
-          <Pie
-            dataKey="value"
-            startAngle={180}
-            endAngle={0}
-            data={chartData}
-            cx="50%"
-            cy="50%"
-            outerRadius={80}
-            fill="#8884d8"
-            label
-          />
-        </PieChart>
-      </ResponsiveContainer>
+      {statsIncomeAndRace.length > 0 ? (
+        <ResponsiveContainer width="100%" height="100%">
+            <PieChart width={400} height={400}>
+              <Pie
+                dataKey="value"
+                startAngle={180}
+                endAngle={0}
+                data={chartData}
+                cx={200}
+                cy={200}
+                outerRadius={80}
+                fill="#8884d8"
+                label
+              />
+            </PieChart>
+          </ResponsiveContainer>
+      ) : (
+        <p>chart will appear here</p>
+      )
+      }
     </div>
     </section>
   );
