@@ -202,7 +202,7 @@ function createData(
           </Table>
         </TableContainer>
       ) : (
-        <p>*Select state and area to view table</p>
+        <p>*Select state and area to view Data</p>
       )}
     </div>
     <div id='skate_table'>
@@ -233,7 +233,7 @@ function createData(
           </Table>
         </TableContainer>
       ) : (
-        <p>*Select state and area to view Skaterboarder Data based off area Population</p>
+        null
       )}
     </div>
     <div id='menu'>
@@ -297,7 +297,7 @@ function createData(
             </PieChart>
           </ResponsiveContainer>
       ) : (
-        <p>chart will appear here</p>
+        null
       )
       }
     </div>
