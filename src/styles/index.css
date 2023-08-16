@@ -130,6 +130,13 @@ div { position: absolute; }
 	color:#FFFFFF;
 }
 
+#pie_chart{
+	top: 300px;
+	left: -10px;
+	/* background-color: #ff3c3c; */
+	width: 300px;
+	height: 250px;
+}
 
 #welcome_to_the_skatepark_advocate_toolkit__ {
 	top: 80px;

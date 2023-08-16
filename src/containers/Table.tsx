@@ -13,6 +13,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import {PureComponent} from 'react'
+import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
 
 const authToken = process.env.REACT_APP_CENSUS_TOKEN;
 
@@ -160,7 +162,14 @@ function createData(
     createSkateData('Peak Load', (peakLoad.toFixed(0))),
     createSkateData('Terrain Needed in Square Feet', ((totalTerrain.toFixed(1))))
   ];
-
+  const chartData = [
+    { name: 'Group A', value: 400 },
+    { name: 'Group B', value: 300 },
+    { name: 'Group C', value: 300 },
+    { name: 'Group D', value: 200 },
+    { name: 'Group E', value: 278 },
+    { name: 'Group F', value: 189 },
+  ];
   return (
     <section id='all-data'>
     <div id='table'>
@@ -262,6 +271,23 @@ function createData(
             </Select>
             <FormHelperText>Required</FormHelperText>
         </FormControl>
+    </div>
+    <div id='pie_chart'>
+    <ResponsiveContainer width="100%" height="100%">
+        <PieChart width={400} height={400}>
+          <Pie
+            dataKey="value"
+            startAngle={180}
+            endAngle={0}
+            data={chartData}
+            cx="50%"
+            cy="50%"
+            outerRadius={80}
+            fill="#8884d8"
+            label
+          />
+        </PieChart>
+      </ResponsiveContainer>
     </div>
     </section>
   );
