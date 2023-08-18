@@ -33,7 +33,7 @@ function App() {
         <div id="census-info" >
 					<h1>Limitations</h1>
           <p>This data derives from the American Community Survey 2021 provided by the U.S Census Bureau. Visit <a href='https://www.census.gov/programs-surveys/acs/data.html'>U.S Census</a> for more information on ACS.</p>
-            <p>Skateboarder Data Table returns data based off your areas population. Visit <a href='https://publicskateparkguide.org/vision/skatepark-adoption-model/>'> Skatepark Adoption Model</a> for more information behind the estimates
+            <p>Skateboarder Data Table returns data based off your areas population. Visit <a href='https://publicskateparkguide.org/vision/skatepark-adoption-model/'> Skatepark Adoption Model</a> for more information behind the estimates
             and next steps in your skatepark building journey.  </p>
           </div>
       

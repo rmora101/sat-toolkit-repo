@@ -82,7 +82,7 @@ export default function BasicTable() {
             try {
             const response = await axios.get(
               `https://api.census.gov/data/2021/acs/acs1/profile?get=NAME,DP03_0062E,DP05_0078PE,DP05_0071PE,DP05_0037PE,DP05_0044PE,DP05_0039PE&for=public%20use%20microdata%20area:${selectedArea}&in=state:${selectedStateId}&key=${authToken}`
-            );
+            ); console.log(response)
             const stats = []
         for (let data of response.data) {
             const Income = data[1];   // Accessing the "DP03_0062E" field
@@ -133,7 +133,7 @@ function createData(
   const secondRowValues = statsIncomeAndRace.length > 1 ? statsIncomeAndRace[1] : [];
   const secondRowPop = statsPopulation.length > 1 ? statsPopulation[1] :[];
 
-
+  console.log(secondRowValues['AAMERICAN'])
   const rows = [
     createData('Median Household Income', secondRowValues['INCOME']),
     createData('Population', secondRowPop['POPULATION']),
